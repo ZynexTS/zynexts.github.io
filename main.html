@@ -1,342 +1,284 @@
+```html
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZynexTS | سرور تیم اسپیک</title>
+<title>ZynexTS</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Estedad:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
 <style>
-  * { margin:0; padding:0; box-sizing:border-box; font-family:Tahoma, 'Segoe UI', sans-serif; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Estedad', sans-serif;
+}
 
-  body {
-    min-height:100vh;
-    background:#0a0000;
-    background-image:
-      radial-gradient(circle at 50% 0%, #3a0000 0%, #120000 45%, #000 100%);
-    color:#fff;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-  }
+body {
+    background: #090909;
+    color: #fff;
+    min-height: 100vh;
+}
 
-  /* هدر */
-  header {
-    width:100%;
-    max-width:1000px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:22px 24px;
-  }
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+}
 
-  .logo {
-    font-size:1.7rem;
-    font-weight:900;
-    letter-spacing:1px;
-    color:#ff3b3b;
-    text-shadow:0 0 20px #ff3b3b88;
-  }
-  .logo span { color:#fff; }
+/* HERO */
 
-  .online {
-    display:flex;
-    align-items:center;
-    gap:7px;
-    font-size:.8rem;
-    color:#9dffb0;
-    background:#0f2a15;
-    border:1px solid #2bff6a44;
-    padding:6px 14px;
-    border-radius:20px;
-  }
-  .online .dot {
-    width:8px; height:8px;
-    border-radius:50%;
-    background:#2bff6a;
-    box-shadow:0 0 8px #2bff6a;
-    animation:blink 1.5s infinite;
-  }
-  @keyframes blink { 50% { opacity:.3; } }
+.hero {
+    text-align: center;
+    padding: 110px 15px 75px;
+}
 
-  /* محتوا */
-  main {
-    width:100%;
-    max-width:1000px;
-    padding:30px 20px 60px;
-    flex:1;
-  }
+.hero small {
+    color: #ed1b35;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
 
-  .hero {
-    text-align:center;
-    margin-bottom:45px;
-  }
-  .hero h1 {
-    font-size:2.4rem;
-    margin-bottom:14px;
-    line-height:1.5;
-  }
-  .hero h1 b { color:#ff3b3b; text-shadow:0 0 25px #ff3b3b77; }
-  .hero p {
-    color:#aaa;
-    font-size:.95rem;
-    max-width:520px;
-    margin:0 auto;
-    line-height:1.9;
-  }
+.hero h1 {
+    font-size: clamp(55px, 10vw, 95px);
+    font-weight: 900;
+    margin: 12px 0;
+    letter-spacing: -3px;
+}
 
-  /* گرید کارت‌ها */
-  .grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fit, minmax(290px, 1fr));
-    gap:22px;
-  }
+.hero h1 span {
+    color: #ed1b35;
+}
 
-  .card {
-    background:linear-gradient(160deg, #1a0000, #0c0000);
-    border:1px solid #ff3b3b33;
-    border-radius:18px;
-    padding:26px 22px;
-    transition:transform .25s, border-color .25s, box-shadow .25s;
-  }
-  .card:hover {
-    transform:translateY(-6px);
-    border-color:#ff3b3b77;
-    box-shadow:0 16px 40px #ff000033;
-  }
+.hero p {
+    color: #777;
+    font-size: 15px;
+}
 
-  .card h2 {
-    display:flex;
-    align-items:center;
-    gap:10px;
-    font-size:1.1rem;
-    margin-bottom:18px;
-  }
-  .icon {
-    width:38px; height:38px;
-    border-radius:10px;
-    background:#ff3b3b1a;
-    border:1px solid #ff3b3b44;
-    display:grid;
-    place-items:center;
-    font-size:1.2rem;
-  }
+/* TITLE */
 
-  /* IP باکس */
-  .ip-box {
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:10px;
-    background:#ff3b3b0d;
-    border:1px dashed #ff3b3b44;
-    border-radius:10px;
-    padding:12px 14px;
-    margin-bottom:12px;
-  }
-  .ip-box .label {
-    font-size:.7rem;
-    color:#ff8a8a;
-    display:block;
-    margin-bottom:3px;
-  }
-  .ip-box code {
-    font-family:Consolas, monospace;
-    font-size:.92rem;
-    color:#fff;
-    direction:ltr;
-    display:inline-block;
-  }
+.section-title {
+    text-align: center;
+    font-size: 27px;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
 
-  .copy-btn {
-    background:#ff3b3b;
-    color:#fff;
-    border:none;
-    padding:7px 14px;
-    border-radius:8px;
-    font-size:.78rem;
-    font-weight:700;
-    cursor:pointer;
-    transition:.2s;
-    flex-shrink:0;
-    font-family:Tahoma;
-  }
-  .copy-btn:hover { background:#ff5c5c; box-shadow:0 0 14px #ff3b3b88; }
-  .copy-btn:active { transform:scale(.94); }
-  .copy-btn.copied { background:#1e9d4a; }
+.section-title span {
+    color: #ed1b35;
+}
 
-  /* دکمه اصلی */
-  .btn-main {
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    gap:10px;
-    width:100%;
-    padding:16px;
-    margin-top:8px;
-    border-radius:12px;
-    background:linear-gradient(90deg, #ff1a1a, #ff5c5c);
-    color:#fff;
-    font-weight:800;
-    font-size:1rem;
-    text-decoration:none;
-    transition:.25s;
-    box-shadow:0 8px 25px #ff1a1a55;
-  }
-  .btn-main:hover {
-    transform:scale(1.02);
-    box-shadow:0 12px 35px #ff1a1a99;
-    filter:brightness(1.1);
-  }
+/* IP CARDS */
 
-  .card p.hint {
-    color:#999;
-    font-size:.85rem;
-    margin-bottom:16px;
-    line-height:1.9;
-  }
+.ip-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
 
-  /* فوتر */
-  footer {
-    width:100%;
-    text-align:center;
-    padding:22px;
-    color:#666;
-    font-size:.85rem;
-    border-top:1px solid #ff3b3b1a;
-  }
-  footer b { color:#ff3b3b; }
+.ip-card {
+    background: #111;
+    border: 1px solid #242424;
+    border-radius: 12px;
+    padding: 28px;
+    transition: border-color .25s;
+}
 
-  /* توست */
-  .toast {
-    position:fixed;
-    bottom:28px;
-    left:50%;
-    transform:translateX(-50%) translateY(100px);
-    background:#1e9d4a;
-    color:#fff;
-    padding:12px 24px;
-    border-radius:10px;
-    font-weight:700;
-    font-size:.9rem;
-    box-shadow:0 10px 30px #000a;
-    opacity:0;
-    transition:.35s;
-    z-index:99;
-    pointer-events:none;
-  }
-  .toast.show {
-    transform:translateX(-50%) translateY(0);
-    opacity:1;
-  }
+.ip-card:hover {
+    border-color: #ed1b35;
+}
 
-  @media (max-width:480px) {
-    .hero h1 { font-size:1.8rem; }
-    .logo { font-size:1.4rem; }
-  }
+.ip-card h3 {
+    font-size: 19px;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+.ip-address {
+    background: #090909;
+    border: 1px solid #262626;
+    border-radius: 7px;
+    padding: 13px;
+    text-align: center;
+    direction: ltr;
+    color: #aaa;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.copy-btn {
+    width: 100%;
+    background: #ed1b35;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 11px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.copy-btn:hover {
+    background: #ff334d;
+}
+
+/* PRIVATE CHANNEL */
+
+.private {
+    margin-top: 65px;
+    margin-bottom: 70px;
+    background: #111;
+    border: 1px solid #292929;
+    border-radius: 13px;
+    text-align: center;
+    padding: 45px 20px;
+}
+
+.private h2 {
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.private h2 span {
+    color: #ed1b35;
+}
+
+.private p {
+    color: #777;
+    margin: 12px 0 24px;
+    font-size: 14px;
+}
+
+.private-btn {
+    display: inline-block;
+    background: #ed1b35;
+    color: white;
+    text-decoration: none;
+    padding: 12px 32px;
+    border-radius: 7px;
+    font-weight: 700;
+    transition: .2s;
+}
+
+.private-btn:hover {
+    background: #ff334d;
+}
+
+/* FOOTER */
+
+footer {
+    border-top: 1px solid #202020;
+    text-align: center;
+    padding: 25px;
+    color: #555;
+    font-size: 12px;
+}
+
+/* MOBILE */
+
+@media(max-width: 650px) {
+    .hero {
+        padding-top: 80px;
+    }
+
+    .ip-container {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+}
 </style>
 </head>
+
 <body>
 
-<header>
-  <div class="logo">Zynex<span>TS</span></div>
-  <div class="online"><span class="dot"></span> سرور آنلاین</div>
-</header>
+<div class="container">
 
-<main>
-  <section class="hero">
-    <h1>به <b>ZynexTS</b> خوش اومدی</h1>
-    <p>سرور تیم‌اسپیک ما با بهترین کیفیت و پینگ پایین — آی‌پی سرور و ساخت چنل خصوصی همین پایین 👇</p>
-  </section>
+    <section class="hero">
+        <small>TEAM SPEAK COMMUNITY</small>
 
-  <section class="grid">
+        <h1>Zynex<span>TS</span></h1>
 
-    <!-- کارت آی‌پی -->
-    <div class="card">
-      <h2><span class="icon">🌐</span> آدرس سرور</h2>
+        <p>به دنیای ارتباطات Zynex خوش آمدید.</p>
+    </section>
 
-      <div class="ip-box">
-        <div>
-          <span class="label">IP اصلی</span>
-          <code id="ip1">zynex.ts.ir:9987</code>
+    <section class="servers">
+
+        <h2 class="section-title">
+            SERVER <span>IP</span>
+        </h2>
+
+        <div class="ip-container">
+
+            <div class="ip-card">
+                <h3>ادرس اول</h3>
+
+                <div class="ip-address">
+                    zynex.ts70.ir
+                </div>
+
+                <button class="copy-btn"
+                onclick="copyIP('zynex.ts70.ir')">
+                    COPY IP
+                </button>
+            </div>
+
+            <div class="ip-card">
+                <h3>ادرس دوم</h3>
+
+                <div class="ip-address">
+                    5.57.37.100:10673
+                </div>
+
+                <button class="copy-btn"
+                onclick="copyIP('5.57.37.100:10673')">
+                    COPY IP
+                </button>
+            </div>
+
         </div>
-        <button class="copy-btn" data-copy="ip1" data-text="zynex.ts.ir:9987">کپی</button>
-      </div>
+    </section>
 
-      <div class="ip-box">
-        <div>
-          <span class="label">IP جایگزین</span>
-          <code id="ip2">backup.zynex.ts:9987</code>
-        </div>
-        <button class="copy-btn" data-copy="ip2" data-text="backup.zynex.ts:9987">کپی</button>
-      </div>
-    </div>
+    <section class="private">
 
-    <!-- کارت ساخت چنل -->
-    <div class="card">
-      <h2><span class="icon">🎧</span> ساخت چنل خصوصی</h2>
-      <p class="hint">می‌خوای چنل خصوصی خودت رو داشته باشی؟ روی دکمه زیر بزن و درخواستت رو ثبت کن.</p>
-      <a href="https://aparat.com" target="_blank" rel="noopener" class="btn-main">
-        🚀 ساخت چنل خصوصی
-      </a>
-    </div>
+        <h2>ساخت چنل <span>خصوصی</span></h2>
 
-  </section>
-</main>
+        <p>
+            برای ساخت چنل اختصاصی خودت از طریق لینک زیر اقدام کن.
+        </p>
+
+        <a href="rubika.ir/Kian_demonss"
+        target="_blank"
+        class="private-btn">
+            CREATE CHANNEL
+        </a>
+
+    </section>
+
+</div>
 
 <footer>
-  ساخته شده با ❤️ برای <b>ZynexTS</b>
+    © 2026 ZynexTS. All Rights Reserved.
 </footer>
 
-<div class="toast" id="toast">✅ کپی شد!</div>
-
 <script>
-  // کپی کردن آی‌پی
-  document.querySelectorAll('.copy-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var text = btn.getAttribute('data-text');
-      var done = function () {
-        var old = btn.textContent;
-        btn.textContent = '✔ شد';
-        btn.classList.add('copied');
-        showToast('✅ کپی شد: ' + text);
-        setTimeout(function () {
-          btn.textContent = old;
-          btn.classList.remove('copied');
-        }, 1600);
-      };
-
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(text).then(done).catch(function () { fallbackCopy(text); done(); });
-      } else {
-        fallbackCopy(text);
-        done();
-      }
+function copyIP(ip) {
+    navigator.clipboard.writeText(ip)
+    .then(() => {
+        alert("IP با موفقیت کپی شد!");
+    })
+    .catch(() => {
+        alert("امکان کپی وجود ندارد.");
     });
-  });
-
-  // روش جایگزین برای مرورگرهای قدیمی یا http
-  function fallbackCopy(text) {
-    var ta = document.createElement('textarea');
-    ta.value = text;
-    ta.style.position = 'fixed';
-    ta.style.opacity = '0';
-    document.body.appendChild(ta);
-    ta.select();
-    try { document.execCommand('copy'); } catch (e) {}
-    document.body.removeChild(ta);
-  }
-
-  // نمایش توست
-  var toastEl = document.getElementById('toast');
-  var toastTimer;
-  function showToast(msg) {
-    toastEl.textContent = msg;
-    toastEl.classList.add('show');
-    clearTimeout(toastTimer);
-    toastTimer = setTimeout(function () {
-      toastEl.classList.remove('show');
-    }, 2200);
-  }
+}
 </script>
 
 </body>
 </html>
+```
