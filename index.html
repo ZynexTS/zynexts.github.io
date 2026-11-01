@@ -1,0 +1,284 @@
+```html
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZynexTS</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Estedad:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Estedad', sans-serif;
+}
+
+body {
+    background: #090909;
+    color: #fff;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+}
+
+/* HERO */
+
+.hero {
+    text-align: center;
+    padding: 110px 15px 75px;
+}
+
+.hero small {
+    color: #ed1b35;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.hero h1 {
+    font-size: clamp(55px, 10vw, 95px);
+    font-weight: 900;
+    margin: 12px 0;
+    letter-spacing: -3px;
+}
+
+.hero h1 span {
+    color: #ed1b35;
+}
+
+.hero p {
+    color: #777;
+    font-size: 15px;
+}
+
+/* TITLE */
+
+.section-title {
+    text-align: center;
+    font-size: 27px;
+    font-weight: 800;
+    margin-bottom: 30px;
+}
+
+.section-title span {
+    color: #ed1b35;
+}
+
+/* IP CARDS */
+
+.ip-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.ip-card {
+    background: #111;
+    border: 1px solid #242424;
+    border-radius: 12px;
+    padding: 28px;
+    transition: border-color .25s;
+}
+
+.ip-card:hover {
+    border-color: #ed1b35;
+}
+
+.ip-card h3 {
+    font-size: 19px;
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+.ip-address {
+    background: #090909;
+    border: 1px solid #262626;
+    border-radius: 7px;
+    padding: 13px;
+    text-align: center;
+    direction: ltr;
+    color: #aaa;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.copy-btn {
+    width: 100%;
+    background: #ed1b35;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 11px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .2s;
+}
+
+.copy-btn:hover {
+    background: #ff334d;
+}
+
+/* PRIVATE CHANNEL */
+
+.private {
+    margin-top: 65px;
+    margin-bottom: 70px;
+    background: #111;
+    border: 1px solid #292929;
+    border-radius: 13px;
+    text-align: center;
+    padding: 45px 20px;
+}
+
+.private h2 {
+    font-size: 25px;
+    font-weight: 800;
+}
+
+.private h2 span {
+    color: #ed1b35;
+}
+
+.private p {
+    color: #777;
+    margin: 12px 0 24px;
+    font-size: 14px;
+}
+
+.private-btn {
+    display: inline-block;
+    background: #ed1b35;
+    color: white;
+    text-decoration: none;
+    padding: 12px 32px;
+    border-radius: 7px;
+    font-weight: 700;
+    transition: .2s;
+}
+
+.private-btn:hover {
+    background: #ff334d;
+}
+
+/* FOOTER */
+
+footer {
+    border-top: 1px solid #202020;
+    text-align: center;
+    padding: 25px;
+    color: #555;
+    font-size: 12px;
+}
+
+/* MOBILE */
+
+@media(max-width: 650px) {
+    .hero {
+        padding-top: 80px;
+    }
+
+    .ip-container {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        letter-spacing: -2px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <section class="hero">
+        <small>TEAM SPEAK COMMUNITY</small>
+
+        <h1>Zynex<span>TS</span></h1>
+
+        <p>به دنیای ارتباطات Zynex خوش آمدید.</p>
+    </section>
+
+    <section class="servers">
+
+        <h2 class="section-title">
+            SERVER <span>IP</span>
+        </h2>
+
+        <div class="ip-container">
+
+            <div class="ip-card">
+                <h3>ادرس اول</h3>
+
+                <div class="ip-address">
+                    zynex.ts70.ir
+                </div>
+
+                <button class="copy-btn"
+                onclick="copyIP('zynex.ts70.ir')">
+                    COPY IP
+                </button>
+            </div>
+
+            <div class="ip-card">
+                <h3>ادرس دوم</h3>
+
+                <div class="ip-address">
+                    5.57.37.100:10673
+                </div>
+
+                <button class="copy-btn"
+                onclick="copyIP('5.57.37.100:10673')">
+                    COPY IP
+                </button>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="private">
+
+        <h2>ساخت چنل <span>خصوصی</span></h2>
+
+        <p>
+            برای ساخت چنل اختصاصی خودت از طریق لینک زیر اقدام کن.
+        </p>
+
+        <a href="rubika.ir/Kian_demonss"
+        target="_blank"
+        class="private-btn">
+            CREATE CHANNEL
+        </a>
+
+    </section>
+
+</div>
+
+<footer>
+    © 2026 ZynexTS. All Rights Reserved.
+</footer>
+
+<script>
+function copyIP(ip) {
+    navigator.clipboard.writeText(ip)
+    .then(() => {
+        alert("IP با موفقیت کپی شد!");
+    })
+    .catch(() => {
+        alert("امکان کپی وجود ندارد.");
+    });
+}
+</script>
+
+</body>
+</html>
+```
